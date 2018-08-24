@@ -28,7 +28,7 @@ speak 语音合成的文件
 ### 5. setting  
 配置文件  
 ### 6. training  
-bulid_corpus 构建预料库文件  
+bulid_corpus 构建语料库文件
 summary 中心思想提取文件
 
 ## 三、Version
