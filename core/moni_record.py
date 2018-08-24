@@ -3,7 +3,7 @@ import pyaudio
 import wave
 import numpy as np
 
-CHUNK = 2048
+CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
@@ -23,15 +23,15 @@ def monitor(file_name):
 
     while (True):
         count +=1
-        print("开始第" + str(count) +"次检测")
+        print("开始第" + str(count) +"次检测") #设置循环20次时，停止运行程序
 
         for i in range(0, int(RATE/CHUNK*RECORD_SECONDS)):
             data = stream.read(CHUNK)
             frames.append(data)
         audio_data = np.fromstring(data, dtype=np.short)
         large_sample_count = np.sum( audio_data > 800 )
-        temp = np.max(audio_data)   # 使用最大因音量来控制
-        if temp > 5000:
+        temp = np.max(audio_data)   # 使用最大因音量来控制?
+        if temp > 800:
             print("检测到信号")
             print('当前阈值：',temp)
             print("开始录音")
@@ -42,6 +42,7 @@ def monitor(file_name):
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS*2)):
         data = stream.read(CHUNK)
         frames.append(data)
+
     print("结束录音")
     stream.stop_stream()
     stream.close()
@@ -54,3 +55,5 @@ def monitor(file_name):
     wf.writeframes(b''.join(frames))
     wf.close()
 
+if __name__ == '__main__':
+    monitor("vad_test.wav")
