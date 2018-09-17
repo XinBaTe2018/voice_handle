@@ -7,7 +7,7 @@ CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
-RECORD_SECONDS = 3
+RECORD_SECONDS = 1
 
 p = pyaudio.PyAudio()
 
@@ -39,7 +39,7 @@ def monitor(file_name):
         else:
             frames = []
             continue
-    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS*2)):
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS*6)):
         data = stream.read(CHUNK)
         frames.append(data)
 
