@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 进行音频检测，当音量超过设定的阈值则开始录音，并将录音的结果存储到wav文件中
+'''
+
 import pyaudio
 import wave
 import numpy as np
@@ -30,7 +35,7 @@ def monitor(file_name):
             frames.append(data)
         audio_data = np.fromstring(data, dtype=np.short)
         large_sample_count = np.sum( audio_data > 800 )
-        temp = np.max(audio_data)   # 使用最大因音量来控制?
+        temp = np.max(audio_data)   # 使用最大因音量来控制
         if temp > 800:
             print("检测到信号")
             print('当前阈值：',temp)

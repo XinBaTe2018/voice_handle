@@ -38,7 +38,7 @@ bot.set_trainer(ChatterBotCorpusTrainer)
 
 def load_json_file(file):
     list1 = []
-    list1.append(["你叫什么名字？","可以叫我小Q"])
+    list1.append(["你叫什么名字？","我是新巴特的Ohboy!"])
     data_dict = dict(conversations=list1)
     with open(file, 'w') as f:
         import json
@@ -46,8 +46,8 @@ def load_json_file(file):
 
 
 if __name__ == '__main__':
-      load_json_file("test.json")
-      bot.train("./test.json")
-     # bot.train(corpus_file)
-     # response = bot.get_response("你叫什么名字")
-     # print(response)
+      # load_json_file("test.json")
+      # bot.train("./test.json")
+      # bot.train(corpus_file)
+     response = bot.get_response("你叫什么名字？")
+     print(response)

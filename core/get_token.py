@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 得到百度语音api接口许可
+'''
 import urllib.request
 import json
 from setting import settings

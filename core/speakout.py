@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 使用百度api接口实现语音合成
+'''
 from core.get_token import get_access_token
 import urllib.request
 from setting import settings

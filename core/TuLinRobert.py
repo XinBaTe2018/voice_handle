@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 使用图灵机器人回答
+'''
 import requests
 import json
 from setting import settings

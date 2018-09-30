@@ -1,5 +1,8 @@
-# coding: utf-8
-#使用百度API进行语音听写
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 使用百度api进行语音听写（语音转文字）
+'''
 
 from core import wav2pcm
 import urllib.request

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 音频格式转化（wav -> pcm）；播放音频
+'''
 import os
 from setting import settings
 import pyaudio

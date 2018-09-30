@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan & Liyaguo
+@summary: 运行的主程序，主要实现检测录音 + 语音识别 + 核心机器人回答 + 语音合成
+'''
 from core import wav2pcm
 import os, time
 from core.MyRobert import bot, MyThread
@@ -49,7 +54,7 @@ if __name__ == '__main__':
 
                     wav2pcm.audio_play(settings.SPEACK_FILE)
                 else:
-                    tts_main("不好意思，刚才梦游了，您可以再说一遍吗？")
+                    tts_main("不好意思，您可以再说一遍吗？")
                     wav2pcm.audio_play(settings.SPEACK_FILE)
 
             else:

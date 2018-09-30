@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+'''
+@auther: Liruijuan
+@summary: 使用讯飞api进行语音听写（语音转文字）
+'''
 import requests
 import time
 import hashlib
