@@ -17,8 +17,8 @@ sound2wordBD: 百度API语音识别
 speakout: 百度语音合成  
 wav2pcm: 实现音频转换和音频播放  
 ***用到的工具：***  
-1.录音过程——pyaudio  
-2.播放过程——ffmpeg工具
+1.音频录制、播放过程——pyaudio  
+2.音频转换过程——ffmpeg工具
 ### 3. corpus  
 从数据库提取语料，转化为json文件格式  
 ### 4. database文件  
