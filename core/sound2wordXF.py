@@ -72,5 +72,5 @@ def wordfromS(audioFilePath):
         return None
 
 if __name__ == "__main__":
-    retdata = wordfromS("1kXF.wav")
+    retdata = wordfromS("vad_test.wav")
     print(retdata)
