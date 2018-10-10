@@ -13,7 +13,8 @@ from core.sound2wordXF import wordfromS     # 该文档使用讯飞api进行语�
 from core.sound2wordBD import asr_main      # 此处使用百度api进行语音识别
 import core.moni_record
 from core.synonyms import sy
-
+import re
+import random
 
 if __name__ == '__main__':
     while True:
@@ -24,7 +25,9 @@ if __name__ == '__main__':
             stop1 = time.time()
             print("讯飞API:%s" % (stop1 - start))
 
-            if str(words) not in ["再见。", "goodbye。", "退出。"]:
+            results = re.findall(r'(再见|goodbye|byebye|退出|再会|待会见|张总|陈总|李总|王总|赵总|刘总)', words)
+            print(results)
+            if len(results) == 0:
                 if words is not None:
                     t = MyThread(TuLin, args=(words,))
                     t.setDaemon(True)
@@ -57,12 +60,18 @@ if __name__ == '__main__':
                     tts_main("不好意思，您可以再说一遍吗？")
                     wav2pcm.audio_play(settings.SPEACK_FILE)
 
+            elif [x for x in results if x in ["张总","陈总","王总","李总","赵总","刘总"]] :
+                words_list = ["欢迎领导莅临指导！","欢迎领导来视察工作！","领导辛苦了！","请领导多多提出宝贵的意见！"]
+                words_speak = random.choice(words_list)
+                tts_main(words_speak)
+                wav2pcm.audio_play(settings.SPEACK_FILE)
+
             else:
                 tts_main("好的，再见，有什么事可以来找我哦！")
                 wav2pcm.audio_play(settings.SPEACK_FILE)
                 break
 
         except:
-            tts_main("我好像没有明白你说了什么")
+            tts_main("抱歉，我好像没有明白你说了什么")
             wav2pcm.audio_play(settings.SPEACK_FILE)
             continue
