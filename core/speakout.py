@@ -7,6 +7,8 @@ from core.get_token import get_access_token
 import urllib.request
 from setting import settings
 import os
+import time
+from datetime import datetime
 
 
 def baidu_tts_by_post(data, id, token):
@@ -31,13 +33,16 @@ def baidu_tts_by_post(data, id, token):
     return resp
 
 
-def tts_main(words):
+def tts_main(words, record_path):
     token = get_access_token()
     text = urllib.parse.quote(words)
     uuid = "11561301"
     resp = baidu_tts_by_post(text, uuid, token)
 
-    with open(settings.SPEACK_FILE, "wb") as f:
+    # dt = datetime.now()
+    # nowtime = dt.strftime("%Y%m%d%H%M%S%f")
+    # record_path = settings.SPEACK_FILE + nowtime + r".wav"  # 以时间命名
+    with open(record_path, "wb") as f:
         f.write(resp)
         f.close()
 

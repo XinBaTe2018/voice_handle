@@ -5,6 +5,7 @@ BASE_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(BASE_DIR)
 sys.path.insert(0,BASE_DIR)
 
+SPEACK_PATH = os.path.join(BASE_DIR,"database\\vad_speak\\")
 SPEACK_FILE = os.path.join(BASE_DIR,"database\\speak\\test.wav")
 LISTEN_FILE =os.path.join(BASE_DIR,"database\\listen\\1kXF.wav")
 PLAY_MEDIA = r"D:/ffmpeg/bin/ffplay"

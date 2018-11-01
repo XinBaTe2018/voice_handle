@@ -8,8 +8,7 @@ from setting import settings
 import pyaudio
 import wave
 
-CHUNK = 2048
-
+CHUNK = 1024
 p = pyaudio.PyAudio()
 
 def wav_to_pcm(wav_file):
@@ -35,8 +34,8 @@ def audio_play(filename):
 
     # play stream
     while len(data) > 0:
-        stream.write(data)
         data = wf.readframes(CHUNK)
+        stream.write(data)
 
     # stop stream
     stream.stop_stream()
@@ -46,6 +45,6 @@ def audio_play(filename):
     # p.terminate()     #注释掉，使循环继续
 
 if __name__ == '__main__':
-    file = wav_to_pcm("test.wav")
-    audio_play(file)
+    # file = wav_to_pcm("test.wav")
+    audio_play(settings.SPEACK_PATH)
 
