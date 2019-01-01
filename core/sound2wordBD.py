@@ -4,7 +4,7 @@
 @summary: 使用百度api进行语音听写（语音转文字）
 '''
 
-from core import wav2pcm
+from audioDeal import wav2pcm
 import urllib.request
 import json
 import base64
@@ -73,7 +73,7 @@ def asr_main(audio_data_va):
     return res          # 得到str格式的文档，为最后写入txt文档做准备
 
 if __name__ == '__main__':
-    asr_main("16k.wav")
+    asr_main("vad_test.wav")
 
 
 
