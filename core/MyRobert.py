@@ -10,7 +10,7 @@ bot = ChatBot("Terminal",
                       'import_path': 'chatterbot.logic.LowConfidenceAdapter',# LowConfidenceAdapter当高信度响应未知时，返回具有高置信度的默认响应。
                       'threshold': settings.THRESHOLD,
                       'defa'
-                      'ult_response': "Tulin reply"
+                      'ult_response': "False"
                   },
               ],
               filters=[
@@ -27,7 +27,7 @@ bot = ChatBot("Terminal",
 
 class MyThread(threading.Thread):
 
-    def __init__(self, func, args=()):
+    def __init__(self,func, args=(),):
         super(MyThread, self).__init__()
         self.func = func
         self.args = args
